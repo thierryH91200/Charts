@@ -212,7 +212,7 @@ types are aliased to either their UI* implementation (on iOS) or their NS* imple
 #endif
 
 #if os(OSX)
-	import Cocoa
+	import AppKit
 	import Quartz
 
 	public typealias NSUIFont = NSFont
