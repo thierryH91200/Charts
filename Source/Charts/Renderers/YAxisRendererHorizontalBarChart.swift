@@ -75,7 +75,7 @@ open class YAxisRendererHorizontalBarChart: YAxisRenderer
             {
                 yPos = viewPortHandler.contentTop - baseYOffset
                 
-                let nameAxisSize = axis.nameAxis.size(withAttributes: [NSAttributedStringKey.font: axis.nameAxisFont])
+                let nameAxisSize = axis.nameAxis.size(withAttributes: [NSAttributedString.Key.font: axis.nameAxisFont])
                 yNamePos = nameAxisSize.height
             }
             else
@@ -89,7 +89,7 @@ open class YAxisRendererHorizontalBarChart: YAxisRenderer
             {
                 yPos = viewPortHandler.contentBottom + lineHeight + baseYOffset
                 
-                let nameAxisSize = axis.nameAxis.size(withAttributes: [NSAttributedStringKey.font: axis.nameAxisFont])
+                let nameAxisSize = axis.nameAxis.size(withAttributes: [NSAttributedString.Key.font: axis.nameAxisFont])
                 yNamePos = yPos + nameAxisSize.height
             }
             else
@@ -133,9 +133,9 @@ open class YAxisRendererHorizontalBarChart: YAxisRenderer
         let paraStyle = NSParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
         paraStyle.alignment = .center
         
-        let labelAttrs = [.font             : axis.nameAxisFont,
-                          .foregroundColor  : axis.labelTextColor,
-                          .paragraphStyle   : paraStyle] as [NSAttributedStringKey : Any]
+        let labelAttrs = [NSAttributedString.Key.font             : axis.nameAxisFont,
+                          NSAttributedString.Key.foregroundColor  : axis.labelTextColor,
+                          NSAttributedString.Key.paragraphStyle   : paraStyle] as [NSAttributedString.Key : Any]
         
         let labelRotationAngleRadians = CGFloat(0.0)
         let text = axis.nameAxis
@@ -206,7 +206,7 @@ open class YAxisRendererHorizontalBarChart: YAxisRenderer
             context.drawText(text,
                              at: CGPoint(x: positions[i].x, y: fixedPosition - offset),
                              align: .center,
-                             attributes: [.font: labelFont, .foregroundColor: labelTextColor])
+                             attributes: [NSAttributedString.Key.font: labelFont, NSAttributedString.Key.foregroundColor: labelTextColor])
         }
     }
     
@@ -379,7 +379,7 @@ open class YAxisRendererHorizontalBarChart: YAxisRenderer
                 context.drawText(label,
                                  at: point,
                                  align: align,
-                                 attributes: [.font: l.valueFont, .foregroundColor: l.valueTextColor])
+                                 attributes: [NSAttributedString.Key.font: l.valueFont, NSAttributedString.Key.foregroundColor: l.valueTextColor])
             }
         }
         

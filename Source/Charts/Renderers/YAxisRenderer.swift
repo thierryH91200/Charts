@@ -59,7 +59,7 @@ open class YAxisRenderer: NSObject, AxisRenderer
                 xPos = viewPortHandler.offsetLeft - xoffset
                 
                 let label = axis.getLongestLabel()
-                let size = label.size(withAttributes: [NSAttributedStringKey.font: axis.nameAxisFont])
+                let size = label.size(withAttributes: [NSAttributedString.Key.font: axis.nameAxisFont])
                 xPosName = size.height
             }
             else
@@ -118,9 +118,9 @@ open class YAxisRenderer: NSObject, AxisRenderer
         let paraStyle = NSParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
         paraStyle.alignment = .center
         
-        let labelAttrs = [.font             : axis.nameAxisFont,
-                          .foregroundColor  : axis.labelTextColor,
-                          .paragraphStyle   : paraStyle] as [NSAttributedStringKey : Any]
+        let labelAttrs = [NSAttributedString.Key.font             : axis.nameAxisFont,
+                          NSAttributedString.Key.foregroundColor  : axis.labelTextColor,
+                          NSAttributedString.Key.paragraphStyle   : paraStyle] as [NSAttributedString.Key : Any]
         
         let labelRotationAngleRadians = CGFloat(-90.0.DEG2RAD)
         let text = axis.nameAxis
@@ -193,7 +193,7 @@ open class YAxisRenderer: NSObject, AxisRenderer
             context.drawText(text,
                              at: CGPoint(x: fixedPosition, y: positions[i].y + offset),
                              align: textAlign,
-                             attributes: [.font: labelFont, .foregroundColor: labelTextColor])
+                             attributes: [NSAttributedString.Key.font: labelFont, NSAttributedString.Key.foregroundColor: labelTextColor])
         }
     }
     
@@ -408,7 +408,7 @@ open class YAxisRenderer: NSObject, AxisRenderer
                 context.drawText(label,
                                  at: point,
                                  align: align,
-                                 attributes: [.font: l.valueFont, .foregroundColor: l.valueTextColor])
+                                 attributes: [NSAttributedString.Key.font: l.valueFont, NSAttributedString.Key.foregroundColor: l.valueTextColor])
             }
         }
         

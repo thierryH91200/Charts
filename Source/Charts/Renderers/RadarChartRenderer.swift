@@ -183,8 +183,8 @@ open class RadarChartRenderer: LineRadarRenderer
                                                               viewPortHandler: viewPortHandler),
                                      at: CGPoint(x: p.x, y: p.y - yoffset - valueFont.lineHeight),
                                      align: .center,
-                                     attributes: [.font: valueFont,
-                                                  .foregroundColor: dataSet.valueTextColorAt(j)])
+                                     attributes: [NSAttributedString.Key.font: valueFont,
+                                                  NSAttributedString.Key.foregroundColor: dataSet.valueTextColorAt(j)])
                 }
                 
                 if let icon = e.icon, dataSet.isDrawIconsEnabled

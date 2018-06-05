@@ -182,8 +182,8 @@ open class BubbleChartRenderer: BarLineScatterCandleBubbleRenderer
                                      at: CGPoint(x: pt.x,
                                                     y: pt.y - (0.5 * lineHeight)),
                                      align: .center,
-                                     attributes: [.font: valueFont,
-                                                  .foregroundColor: valueTextColor])
+                                     attributes: [NSAttributedString.Key.font: valueFont,
+                                                  NSAttributedString.Key.foregroundColor: valueTextColor])
                 }
 
                 if let icon = e.icon, dataSet.isDrawIconsEnabled

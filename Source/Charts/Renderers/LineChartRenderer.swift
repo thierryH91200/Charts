@@ -565,8 +565,8 @@ open class LineChartRenderer: LineRadarRenderer
                                          at: CGPoint(x: pt.x,
                                                      y: pt.y - CGFloat(valOffset) - valueFont.lineHeight),
                                          align: .center,
-                                         attributes: [.font: valueFont,
-                                                      .foregroundColor: dataSet.valueTextColorAt(j)])
+                                         attributes: [NSAttributedString.Key.font: valueFont,
+                                                      NSAttributedString.Key.foregroundColor: dataSet.valueTextColorAt(j)])
                     }
                     
                     if let icon = e.icon, dataSet.isDrawIconsEnabled

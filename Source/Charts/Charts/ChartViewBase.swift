@@ -281,9 +281,9 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
                                       constrainedTo: bounds.size,
                                       anchor: CGPoint(x: 0.5, y: 0.5),
                                       angleRadians: 0.0,
-                                      attributes: [.font: noDataFont,
-                                                   .foregroundColor: noDataTextColor,
-                                                   .paragraphStyle: paragraphStyle])
+                                      attributes: [NSAttributedString.Key.font: noDataFont,
+                                                   NSAttributedString.Key.foregroundColor: noDataTextColor,
+                                                   NSAttributedString.Key.paragraphStyle: paragraphStyle])
 
             return
         }
@@ -310,9 +310,9 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
         let position = description.position ?? CGPoint(x: bounds.width - viewPortHandler.offsetRight - description.xOffset,
                                                        y: bounds.height - viewPortHandler.offsetBottom - description.yOffset - description.font.lineHeight)
 
-        let attrs: [NSAttributedStringKey : Any] = [
-            .font: description.font,
-            .foregroundColor: description.textColor
+        let attrs: [NSAttributedString.Key : Any] = [
+            NSAttributedString.Key.font: description.font,
+            NSAttributedString.Key.foregroundColor: description.textColor
         ]
 
         context.drawText(descriptionText,

@@ -189,7 +189,7 @@ open class XAxisRenderer: NSObject, AxisRenderer
     {
         let longest = axis.getLongestLabel()
         
-        let labelSize = longest.size(withAttributes: [.font: axis.labelFont])
+        let labelSize = longest.size(withAttributes: [NSAttributedString.Key.font: axis.labelFont])
 
         let labelWidth = labelSize.width
         let labelHeight = labelSize.height
@@ -213,7 +213,7 @@ open class XAxisRenderer: NSObject, AxisRenderer
         let width = (viewPortHandler.chartWidth / 2)
         let positions = CGPoint(x: width, y:0.0)
         
-        let nameAxisSize = axis.nameAxis.size(withAttributes: [NSAttributedStringKey.font: axis.nameAxisFont])
+        let nameAxisSize = axis.nameAxis.size(withAttributes: [NSAttributedString.Key.font: axis.nameAxisFont])
         
         if axis.labelPosition == .top
         {
@@ -268,9 +268,9 @@ open class XAxisRenderer: NSObject, AxisRenderer
         let paraStyle = NSParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
         paraStyle.alignment = .center
         
-        let labelAttrs = [.font             : axis.nameAxisFont,
-                          .foregroundColor  : axis.labelTextColor,
-                          .paragraphStyle   : paraStyle] as [NSAttributedStringKey : Any]
+        let labelAttrs = [NSAttributedString.Key.font             : axis.nameAxisFont,
+                          NSAttributedString.Key.foregroundColor  : axis.labelTextColor,
+                          NSAttributedString.Key.paragraphStyle   : paraStyle] as [NSAttributedString.Key : Any]
 
         let labelRotationAngleRadians = CGFloat(0)
         
@@ -346,9 +346,9 @@ open class XAxisRenderer: NSObject, AxisRenderer
         #endif
         paraStyle.alignment = .center
         
-        let labelAttrs: [NSAttributedStringKey : Any] = [.font: axis.labelFont,
-                                                         .foregroundColor: axis.labelTextColor,
-                                                         .paragraphStyle: paraStyle]
+        let labelAttrs: [NSAttributedString.Key : Any] = [NSAttributedString.Key.font: axis.labelFont,
+                                                         NSAttributedString.Key.foregroundColor: axis.labelTextColor,
+                                                         NSAttributedString.Key.paragraphStyle: paraStyle]
         let labelRotationAngleRadians = axis.labelRotationAngle.DEG2RAD
 
         let centeringEnabled = axis.isCenterAxisLabelsEnabled
@@ -423,7 +423,7 @@ open class XAxisRenderer: NSObject, AxisRenderer
         formattedLabel: String,
         x: CGFloat,
         y: CGFloat,
-        attributes: [NSAttributedStringKey : Any],
+        attributes: [NSAttributedString.Key : Any],
         constrainedTo size: CGSize,
         anchor: CGPoint,
         angleRadians: CGFloat)
@@ -603,8 +603,8 @@ open class XAxisRenderer: NSObject, AxisRenderer
             context.drawText(label,
                              at: point,
                              align: align,
-                             attributes: [.font: limitLine.valueFont,
-                                          .foregroundColor: limitLine.valueTextColor])
+                             attributes: [NSAttributedString.Key.font: limitLine.valueFont,
+                                          NSAttributedString.Key.foregroundColor: limitLine.valueTextColor])
         }
     }
 }

@@ -112,7 +112,7 @@ open class HorizontalBarChartView: BarChartView
             offsetTop += leftAxis.getRequiredHeightSpace()
             if leftAxis.nameAxisEnabled
             {
-                let nameLeftAxisSize = leftAxis.nameAxis.size(withAttributes: [NSAttributedStringKey.font: leftAxis.nameAxisFont])
+                let nameLeftAxisSize = leftAxis.nameAxis.size(withAttributes: [NSAttributedString.Key.font: leftAxis.nameAxisFont])
                 offsetTop += nameLeftAxisSize.height
             }
         }
@@ -122,7 +122,7 @@ open class HorizontalBarChartView: BarChartView
             offsetBottom += rightAxis.getRequiredHeightSpace()
             if rightAxis.nameAxisEnabled
             {
-                let nameRightAxisSize = rightAxis.nameAxis.size(withAttributes: [NSAttributedStringKey.font: rightAxis.nameAxisFont])
+                let nameRightAxisSize = rightAxis.nameAxis.size(withAttributes: [NSAttributedString.Key.font: rightAxis.nameAxisFont])
                 offsetBottom += nameRightAxisSize.height
             }
         }
@@ -134,7 +134,7 @@ open class HorizontalBarChartView: BarChartView
             var namexAxisSize = CGSize()
             if xAxis.nameAxisEnabled
             {
-                namexAxisSize = xAxis.nameAxis.size(withAttributes: [NSAttributedStringKey.font: xAxis.nameAxisFont])
+                namexAxisSize = xAxis.nameAxis.size(withAttributes: [NSAttributedString.Key.font: xAxis.nameAxisFont])
             }
             
             // offsets for x-labels

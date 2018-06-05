@@ -424,7 +424,7 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
                 offsetLeft += leftAxis.requiredSize().width
                 if leftAxis.nameAxisEnabled
                 {
-                    let nameLeftAxisSize = leftAxis.nameAxis.size(withAttributes: [NSAttributedStringKey.font: leftAxis.nameAxisFont])
+                    let nameLeftAxisSize = leftAxis.nameAxis.size(withAttributes: [NSAttributedString.Key.font: leftAxis.nameAxisFont])
                     offsetLeft += nameLeftAxisSize.height
                 }
             }
@@ -434,7 +434,7 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
                 offsetRight += rightAxis.requiredSize().width
                 if rightAxis.nameAxisEnabled
                 {
-                    let nameRightAxisSize = rightAxis.nameAxis.size(withAttributes: [NSAttributedStringKey.font: rightAxis.nameAxisFont])
+                    let nameRightAxisSize = rightAxis.nameAxis.size(withAttributes: [NSAttributedString.Key.font: rightAxis.nameAxisFont])
                     offsetRight += nameRightAxisSize.height
                 }
             }
@@ -446,7 +446,7 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
                 var namexAxisSize = CGSize()
                 if xAxis.nameAxisEnabled
                 {
-                    namexAxisSize = xAxis.nameAxis.size(withAttributes: [NSAttributedStringKey.font: xAxis.nameAxisFont])
+                    namexAxisSize = xAxis.nameAxis.size(withAttributes: [NSAttributedString.Key.font: xAxis.nameAxisFont])
                 }
                 
                 // offsets for x-labels
@@ -1702,7 +1702,7 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
         let h = getHighlightByTouchPoint(pt)
         if h !== nil
         {
-            return data?.getDataSetByIndex(h!.dataSetIndex) as! BarLineScatterCandleBubbleChartDataSetProtocol
+            return data?.getDataSetByIndex(h!.dataSetIndex) as? BarLineScatterCandleBubbleChartDataSetProtocol
         }
         return nil
     }

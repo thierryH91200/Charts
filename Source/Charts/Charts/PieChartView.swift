@@ -389,7 +389,7 @@ open class PieChartView: PieRadarChartViewBase
             {
                 #if os(OSX)
                     let paragraphStyle = NSParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
-                    paragraphStyle.lineBreakMode = NSParagraphStyle.LineBreakMode.byTruncatingTail
+                    paragraphStyle.lineBreakMode = NSLineBreakMode.byTruncatingTail
                 #else
                     let paragraphStyle = NSParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
                     paragraphStyle.lineBreakMode = NSLineBreakMode.byTruncatingTail
@@ -397,9 +397,9 @@ open class PieChartView: PieRadarChartViewBase
                 paragraphStyle.alignment = .center
                 
                 attrString = NSMutableAttributedString(string: newValue!)
-                attrString?.setAttributes([.foregroundColor: NSUIColor.black,
-                                           .font: NSUIFont.systemFont(ofSize: 12.0),
-                                           .paragraphStyle: paragraphStyle],
+                attrString?.setAttributes([NSAttributedString.Key.foregroundColor: NSUIColor.black,
+                                           NSAttributedString.Key.font: NSUIFont.systemFont(ofSize: 12.0),
+                                           NSAttributedString.Key.paragraphStyle: paragraphStyle],
                                           range: NSMakeRange(0, attrString!.length))
             }
             self.centerAttributedText = attrString
