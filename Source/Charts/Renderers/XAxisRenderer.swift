@@ -416,6 +416,7 @@ open class XAxisRenderer: NSObject, AxisRenderer
                           angleRadians: labelRotationAngleRadians)
             }
         }
+        arrow(context: context)
     }
     
     @objc open func drawLabel(
@@ -477,6 +478,23 @@ open class XAxisRenderer: NSObject, AxisRenderer
             
             drawGridLine(context: context, x: position.x, y: position.y)
         }
+    }
+    
+    public func arrow(context: CGContext) {
+        let x = viewPortHandler.contentRight
+        let y = viewPortHandler.contentBottom
+        
+        context.beginPath()
+        context.setLineWidth(4.0)
+        
+        context.move(to: CGPoint(x: x, y: y))
+        context.addLine(to: CGPoint(x: x - 15, y: y - 15 ))
+        
+        context.move(to: CGPoint(x: x, y: y))
+        context.addLine(to: CGPoint(x: x - 15, y: y + 15 ))
+        
+        context.strokePath()
+
     }
     
     @objc open var gridClippingRect: CGRect
