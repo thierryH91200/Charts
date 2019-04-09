@@ -236,17 +236,22 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
         if xAxis.isEnabled && !xAxis.isDrawLimitLinesBehindDataEnabled
         {
             xAxisRenderer.renderLimitLines(context: context)
+//            xAxisRenderer.renderLimitFill(context: context)
+
+            
         }
         
         if leftAxis.isEnabled && !leftAxis.isDrawLimitLinesBehindDataEnabled
         {
             leftYAxisRenderer.renderLimitLines(context: context)
+            leftYAxisRenderer.renderLimitFill(context: context)
         }
         
         if rightAxis.isEnabled && !rightAxis.isDrawLimitLinesBehindDataEnabled
         {
             rightYAxisRenderer.renderLimitLines(context: context)
         }
+        
         
         xAxisRenderer.renderAxisLabels(context: context)
         leftYAxisRenderer.renderAxisLabels(context: context)

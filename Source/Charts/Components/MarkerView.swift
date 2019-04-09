@@ -85,7 +85,7 @@ open class MarkerView: NSUIView, Marker
             let loadedObjectsPointer = AutoreleasingUnsafeMutablePointer<NSArray?>(&loadedObjects)
             
             if bundle.loadNibNamed(
-                NSNib.Name(String(describing: self)),
+                String(describing: self),
                 owner: nil,
                 topLevelObjects: loadedObjectsPointer)
             {
