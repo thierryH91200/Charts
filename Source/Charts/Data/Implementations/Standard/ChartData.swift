@@ -348,8 +348,8 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
     internal func getDataSetIndexByLabel(_ label: String, ignorecase: Bool) -> Int
     {
         return ignorecase
-            ? index { $0.label?.caseInsensitiveCompare(label) == .orderedSame } ?? -1
-            : index { $0.label == label } ?? -1
+            ? firstIndex { $0.label?.caseInsensitiveCompare(label) == .orderedSame } ?? -1
+            : firstIndex { $0.label == label } ?? -1
     }
     
     /// - returns: The labels of all DataSets as a string array.
@@ -397,7 +397,7 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
     {
         guard
             dataSet != nil,
-            let index = index(where: { $0 === dataSet })
+            let index = firstIndex(where: { $0 === dataSet })
             else { return false }
 
         _ = remove(at: index)
@@ -457,7 +457,7 @@ open class ChartData: NSObject, ExpressibleByArrayLiteral
     /// - returns: The index of the provided DataSet in the DataSet array of this data object, or -1 if it does not exist.
     @objc open func indexOfDataSet(_ dataSet: ChartDataSetProtocol) -> Int
     {
-        return index(where: { $0 === dataSet }) ?? -1
+        return firstIndex(where: { $0 === dataSet }) ?? -1
     }
     
     /// - returns: The first DataSet from the datasets-array that has it's dependency on the left axis. Returns null if no DataSet with left dependency could be found.
@@ -700,8 +700,8 @@ extension ChartData
     public func index(forLabel label: String, ignoreCase: Bool) -> Index?
     {
         return ignoreCase
-            ? index { $0.label?.caseInsensitiveCompare(label) == .orderedSame }
-            : index { $0.label == label }
+            ? firstIndex { $0.label?.caseInsensitiveCompare(label) == .orderedSame }
+            : firstIndex { $0.label == label }
     }
 
     public subscript(label: String, ignoreCase: Bool) -> Element?
@@ -712,7 +712,7 @@ extension ChartData
     
     public subscript(entry: ChartDataEntry) -> Element?
     {
-        guard let index = index(where: { $0.entryForXValue(entry.x, closestToY: entry.y) === entry }) else { return nil }
+        guard let index = firstIndex(where: { $0.entryForXValue(entry.x, closestToY: entry.y) === entry }) else { return nil }
         return self[index]
     }
 }
