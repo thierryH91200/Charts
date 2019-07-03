@@ -281,7 +281,7 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
                                       constrainedTo: bounds.size,
                                       anchor: CGPoint(x: 0.5, y: 0.5),
                                       angleRadians: 0.0,
-                                      attributes: [NSAttributedString.Key.font: noDataFont,
+                                      attributes: [NSAttributedString.Key.font: noDataFont!,
                                                    NSAttributedString.Key.foregroundColor: noDataTextColor,
                                                    NSAttributedString.Key.paragraphStyle: paragraphStyle])
 
