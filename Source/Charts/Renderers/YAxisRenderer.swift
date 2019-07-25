@@ -40,7 +40,7 @@ open class YAxisRenderer: NSObject, AxisRenderer
         let viewPortHandler = self.viewPortHandler
         let transformer = self.transformer
         
-        var limitLines = yAxis.limitLines
+        let limitLines = yAxis.limitLines
         guard limitLines.count > 1 else { return }
 
         context.saveGState()

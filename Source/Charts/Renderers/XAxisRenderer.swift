@@ -67,7 +67,7 @@ open class XAxisRenderer: NSObject, AxisRenderer
         let viewPortHandler = self.viewPortHandler
         let transformer = self.transformer
         
-        var limitLines = yAxis.limitLines
+        let limitLines = yAxis.limitLines
         if limitLines.count != 2
         {
             return

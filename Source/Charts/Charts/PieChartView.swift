@@ -195,7 +195,7 @@ open class PieChartView: PieRadarChartViewBase
         
         let yValueSum = (data as! PieChartData).yValueSum
         
-        var dataSets = data.dataSets
+        let dataSets = data.dataSets
 
         var cnt = 0
 
